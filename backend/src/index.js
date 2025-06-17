@@ -1,4 +1,5 @@
 import express from "express";
+<<<<<<< HEAD
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 // import cors from "cors";
@@ -27,5 +28,21 @@ app.use("/api/messages", messageRoutes);
 
 app.listen(PORT,()=>{
     console.log(`Server running on port: ${PORT}`);
+=======
+import authRoutes from "./routes/authRoutes.route.js";
+import dotenv from "dotenv";
+import { connectDB } from "./lib/db.js";
+
+
+dotenv.config();
+
+const app=express();
+const PORT=process.env.PORT;
+
+app.use("/api/auth",authRoutes);
+
+app.listen(PORT,()=>{
+    console.log("server running on port PORT:"+PORT);
+>>>>>>> 0fd5de0e9eb7d86c8108a508edde1de2aa6d8ec1
     connectDB();
 })
