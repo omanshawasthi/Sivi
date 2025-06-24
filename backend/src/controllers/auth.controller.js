@@ -1,11 +1,7 @@
 import { generateToken } from "../lib/utils.js";
 import User from "../models/user.model.js";
 import bcrypt from "bcryptjs";
-<<<<<<< HEAD
 // import cloudinary from "../lib/cloudinary.js";
-=======
-import cloudinary from "../lib/cloudinary.js";
->>>>>>> 0fd5de0e9eb7d86c8108a508edde1de2aa6d8ec1
 
 export const signup = async (req, res) => {
   const { fullName, email, password } = req.body;
@@ -33,17 +29,10 @@ export const signup = async (req, res) => {
 
     if (newUser) {
       // generate jwt token here
-<<<<<<< HEAD
       generateToken(newUser._id, res);//mongoDB stores as _id not id
       await newUser.save();//save user to db
 
       res.status(201).json({//201=something created,display msg of success
-=======
-      generateToken(newUser._id, res);
-      await newUser.save();
-
-      res.status(201).json({
->>>>>>> 0fd5de0e9eb7d86c8108a508edde1de2aa6d8ec1
         _id: newUser._id,
         fullName: newUser.fullName,
         email: newUser.email,
@@ -58,7 +47,6 @@ export const signup = async (req, res) => {
   }
 };
 
-<<<<<<< HEAD
 export const login = async (req, res) => {
   const { email, password } = req.body;
   try {
@@ -128,12 +116,3 @@ export const checkAuth = (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
-=======
-export const login=(req,res)=>{
-    res.send("login route");
-}
-
-export const logout=(req,res)=>{
-    res.send("logout route");
-}
->>>>>>> 0fd5de0e9eb7d86c8108a508edde1de2aa6d8ec1
